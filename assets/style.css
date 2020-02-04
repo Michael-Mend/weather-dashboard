@@ -4,17 +4,61 @@ body {
 }
 h1 {
     text-align: center;
-    font-size: 40px;
+    font-size: 60px;
     font-family: 'Roboto Slab';
     padding: 20px;
     margin-left: -15px;
     margin-right: -15px;
     background-color: rgb(65, 65, 68);
+    color: white;
 }
-#srch {
-    padding-left: 30px;
+h2 {
+    margin-top: -40px;
+    font-size: 50px;
+}
+li {
+    list-style: none;
+    background-color: white;
+    width: 15%;
+    border-radius: 10px;
+    margin: 5px;
+}
+li::before {
+    content: "•"; 
+    color: transparent;
+}
+ul {
+    margin-bottom: -20px;
+    margin-top: -5px;
+}
+.body {
+    margin-top: 15px;
+}
+.day {
+    background-color: rgb(49, 49, 51);
+    margin: 10px;
+    text-align: center;
+}
+.srch {
+    background-color: lightgrey;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    padding-top: 10px;
 }
 #srchbtn {
-    height: 22px;
-    width: 22px;
-}   
+    position: relative;
+    top: 7px;
+    height: 30px;
+    width: 30px;
+    background-image: url(images/srch.png);
+    background-size: cover;
+    background-color: transparent;
+    border: none;
+    border-radius: 3px;
+}
+#srchbx {
+    line-height: .80;
+    border-radius: 4px;
+    width: 85%;
+} 
+
