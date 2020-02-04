@@ -9,7 +9,7 @@ h1 {
     padding: 20px;
     margin-left: -15px;
     margin-right: -15px;
-    background-color: rgb(65, 65, 68);
+    background-color: rgb(72, 76, 85);
     color: white;
 }
 h2 {
@@ -19,7 +19,7 @@ h2 {
 li {
     list-style: none;
     background-color: white;
-    width: 15%;
+    width: 10%;
     border-radius: 10px;
     margin: 5px;
 }
@@ -35,13 +35,18 @@ ul {
     margin-top: 15px;
 }
 .day {
-    background-color: lightgrey;
-    margin: 10px;
-    text-align: center;
+    margin: 20px;
+    background-color: rgb(231, 231, 238);;
     border-radius: 5px;
 }
+.days {
+    margin-left: 20px;
+}
+.jumbotron {
+    background-color: rgb(231, 231, 238);
+}
 .srch {
-    background-color: lightgrey;
+    background-color: rgb(231, 231, 238);;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     padding-top: 10px;
@@ -62,4 +67,7 @@ ul {
     border-radius: 4px;
     width: 85%;
 } 
+#tdIcon {
+    margin-top: -60px;
+}
 

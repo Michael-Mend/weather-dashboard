@@ -11,9 +11,11 @@ function search() {
         $('#temp').html(Math.floor(res.main.temp * 1.8 - 459.76) + ' &#176;F');
         $('#humid').html(res.main.humidity + '%');
         $('#wind').html(res.wind.speed + ' mph');
+        $('.days').html('');
+        $('#tdIcon').attr('src', 'http://openweathermap.org/img/wn/' + res.weather[0].icon + '@2x.png');
 
         var uvQueryUrl = 'http://api.openweathermap.org/data/2.5/uvi?appid=06e67d1c01fd425c507533b8a4c46d90&lat='+ res.coord.lat + '&lon=' + res.coord.lon;
-
+       
         $.ajax({
             url: uvQueryUrl,
             method: 'get'
@@ -26,22 +28,26 @@ function search() {
         method: 'get'
     }).then(function(res) {
         for (i = 0; i < 5; i++) {
-            $('#day' + i).html(moment().add(1 + i, 'days').format('M/D') + '<br>' + Math.floor(res.list[fdIndex[i]].main.temp * 1.8 -459.76) + ' &#176;F<br>' + res.list[fdIndex[i]].main.humidity + '%')
+            console.log(res.list[fdIndex[i]].weather[0].icon)
+            $('.days').append('<div class="col-sm-2 day">' + moment().add(1 + i, 'days').format('MMMM Do') + '<br> Temp: ' + Math.floor(res.list[fdIndex[i]].main.temp * 1.8 -459.76) + ' &#176;F<br> Humidity: ' + res.list[fdIndex[i]].main.humidity + '%</div>');
         }
     });
 };
 
+function save() {
+    
+};
+
 search();
-
 $('#date').html(moment().format(' MMMM Do YYYY'))
-
 $('#srchbtn').click(function(){
     search();
+    save();
 });
-
 $('#srchbx').keypress(function(e){
-    var keycode = (event.keyCode);
+    var keycode = (e.keyCode);
     if(keycode == '13'){
         search();
+        save();
     }
 })    
