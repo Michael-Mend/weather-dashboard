@@ -1,6 +1,4 @@
-$('#date').html(moment().format(' MMMM Do YYYY'))
-
-$('#srchbtn').click(function(){
+function search() {
     var cwQueryUrl = 'https://api.openweathermap.org/data/2.5/weather?appid=06e67d1c01fd425c507533b8a4c46d90&q=' + srchbx.value;
     var fdQueryUrl = 'https://api.openweathermap.org/data/2.5/forecast?appid=06e67d1c01fd425c507533b8a4c46d90&q=' + srchbx.value;
     var fdIndex =  [6,14,22,30,38];
@@ -27,10 +25,23 @@ $('#srchbtn').click(function(){
         url: fdQueryUrl,
         method: 'get'
     }).then(function(res) {
-        // console.log(res.list[6].main.humidity);
-        // console.log(Math.floor(res.list[6].main.temp * 1.8 -459.76));
         for (i = 0; i < 5; i++) {
             $('#day' + i).html(moment().add(1 + i, 'days').format('M/D') + '<br>' + Math.floor(res.list[fdIndex[i]].main.temp * 1.8 -459.76) + ' &#176;F<br>' + res.list[fdIndex[i]].main.humidity + '%')
         }
-    })
+    });
+};
+
+search();
+
+$('#date').html(moment().format(' MMMM Do YYYY'))
+
+$('#srchbtn').click(function(){
+    search();
 });
+
+$('#srchbx').keypress(function(e){
+    var keycode = (event.keyCode);
+    if(keycode == '13'){
+        search();
+    }
+})    
