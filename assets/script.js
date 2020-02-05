@@ -12,9 +12,9 @@ function search() {
         $('#humid').html(res.main.humidity + '%');
         $('#wind').html(res.wind.speed + ' mph');
         $('.days').html('');
-        $('#tdIcon').attr('src', 'http://openweathermap.org/img/wn/' + res.weather[0].icon + '@2x.png');
+        $('#tdIcon').attr('src', 'https://openweathermap.org/img/wn/' + res.weather[0].icon + '@2x.png');
 
-        var uvQueryUrl = 'http://api.openweathermap.org/data/2.5/uvi?appid=06e67d1c01fd425c507533b8a4c46d90&lat='+ res.coord.lat + '&lon=' + res.coord.lon;
+        var uvQueryUrl = 'https://api.openweathermap.org/data/2.5/uvi?appid=06e67d1c01fd425c507533b8a4c46d90&lat='+ res.coord.lat + '&lon=' + res.coord.lon;
        
         $.ajax({
             url: uvQueryUrl,
@@ -37,9 +37,8 @@ function search() {
         method: 'get'
     }).then(function(res) {
         for (i = 0; i < 5; i++) {
-            console.log(res.list[fdIndex[i]].weather[0].icon)
             $('.days').append('<div class="col-sm-3 day">' + moment().add(1 + i, 'days').format('MMMM Do') + '<img class="fdIcon"><br> Temp: ' + Math.floor(res.list[fdIndex[i]].main.temp * 1.8 -459.76) + ' &#176;F<br> Humidity: ' + res.list[fdIndex[i]].main.humidity + '%</div>');
-            $('.fdIcon').attr('src', 'http://openweathermap.org/img/wn/' + res.list[fdIndex[i]].weather[0].icon + '.png')
+            $('.fdIcon').attr('src', 'https://openweathermap.org/img/wn/' + res.list[fdIndex[i]].weather[0].icon + '.png')
         }
     });
 };
