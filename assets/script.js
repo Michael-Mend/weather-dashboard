@@ -21,6 +21,15 @@ function search() {
             method: 'get'
         }).then(function(resp) {
             $('#uv').html(resp.value)
+            if (resp.value <= 3) {
+                $('#uv').attr('class', 'grn')
+            } else if (resp.value <= 6 && resp.value > 3) {
+                $('#uv').attr('class', 'ylw')
+            } else if (resp.value <= 8 && resp.value > 6) {
+                $('#uv').attr('class', 'org')
+            } else {
+                $('#uv').attr('class', 'red')
+            }
         })
     });
     $.ajax({
@@ -29,7 +38,8 @@ function search() {
     }).then(function(res) {
         for (i = 0; i < 5; i++) {
             console.log(res.list[fdIndex[i]].weather[0].icon)
-            $('.days').append('<div class="col-sm-2 day">' + moment().add(1 + i, 'days').format('MMMM Do') + '<br> Temp: ' + Math.floor(res.list[fdIndex[i]].main.temp * 1.8 -459.76) + ' &#176;F<br> Humidity: ' + res.list[fdIndex[i]].main.humidity + '%</div>');
+            $('.days').append('<div class="col-sm-3 day">' + moment().add(1 + i, 'days').format('MMMM Do') + '<img class="fdIcon"><br> Temp: ' + Math.floor(res.list[fdIndex[i]].main.temp * 1.8 -459.76) + ' &#176;F<br> Humidity: ' + res.list[fdIndex[i]].main.humidity + '%</div>');
+            $('.fdIcon').attr('src', 'http://openweathermap.org/img/wn/' + res.list[fdIndex[i]].weather[0].icon + '.png')
         }
     });
 };

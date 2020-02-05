@@ -1,14 +1,14 @@
 body {
    font-family: 'Roboto';
    font-size: 20px;
+   overflow-x: hidden; 
 }
 h1 {
     text-align: center;
     font-size: 60px;
     font-family: 'Roboto Slab';
     padding: 20px;
-    margin-left: -15px;
-    margin-right: -15px;
+    width: 100%;
     background-color: rgb(72, 76, 85);
     color: white;
 }
@@ -19,7 +19,7 @@ h2 {
 li {
     list-style: none;
     background-color: white;
-    width: 10%;
+    width: 20%;
     border-radius: 10px;
     margin: 5px;
 }
@@ -42,14 +42,28 @@ ul {
 .days {
     margin-left: 20px;
 }
+.grn {
+    background-color: rgb(175, 223, 175);
+}
 .jumbotron {
     background-color: rgb(231, 231, 238);
+}
+.org {
+    background-color: rgb(247, 206, 168);
+}
+.red {
+    background-color: rgb(238, 125, 125);
 }
 .srch {
     background-color: rgb(231, 231, 238);;
     border-top-right-radius: 5px;
     border-bottom-right-radius: 5px;
     padding-top: 10px;
+    padding-bottom: 20px;
+    height: 816px;
+}
+.ylw {
+    background-color: rgb(250, 249, 198);
 }
 #srchbtn {
     position: relative;
