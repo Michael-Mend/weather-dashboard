@@ -70,6 +70,7 @@ $('#date').html(moment().format(' MMMM Do YYYY'))
 $('#srchbtn').click(function() {
     save();
     search();
+    $('#srchbx').attr('value', '');
 });
 
 $('#srchbx').keypress(function(e) {
@@ -77,5 +78,6 @@ $('#srchbx').keypress(function(e) {
     if(keycode == '13'){
         save();
         search();
+        $('#srchbx').attr('value', '');
     }
 });
