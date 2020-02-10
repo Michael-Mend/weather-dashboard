@@ -16,21 +16,6 @@ h2 {
     margin-top: -40px;
     font-size: 50px;
 }
-li {
-    list-style: none;
-    background-color: white;
-    width: 20%;
-    border-radius: 10px;
-    margin: 5px;
-}
-li::before {
-    content: "•"; 
-    color: transparent;
-}
-ul {
-    margin-bottom: -20px;
-    margin-top: -5px;
-}
 .body {
     margin-top: 15px;
 }
@@ -38,15 +23,27 @@ ul {
     margin: 20px;
     background-color: rgb(231, 231, 238);;
     border-radius: 5px;
-}
-.days {
-    margin-left: 20px;
+    padding-bottom: 20px;
+    padding-top: 10px;
+    font-size: 18px;
 }
 .grn {
     background-color: rgb(175, 223, 175);
 }
+.hst {
+    border-radius: 10px;
+    margin: 5px;
+}
+.info {
+    list-style: none;
+    background-color: white;
+    width: 60%;
+    border-radius: 10px;
+    margin: 5px;
+    text-align: center;
+}
 .jumbotron {
-    background-color: rgb(231, 231, 238);
+    background-color: rgb(231, 231, 238);   
 }
 .org {
     background-color: rgb(247, 206, 168);
@@ -56,14 +53,23 @@ ul {
 }
 .srch {
     background-color: rgb(231, 231, 238);;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
+    border-radius: 5px;
     padding-top: 10px;
     padding-bottom: 20px;
-    height: 816px;
+    height: 365px;
+}
+.td {
+    margin-top: 20px;
 }
 .ylw {
     background-color: rgb(250, 249, 198);
+}
+#history {
+    list-style: none;
+    margin-top: 5px;
+    margin-left: -30px;
+    overflow: hidden;
+    height: 272px;
 }
 #srchbtn {
     position: relative;

@@ -22,13 +22,13 @@ function search() {
         }).then(function(resp) {
             $('#uv').html(resp.value)
             if (resp.value <= 3) {
-                $('#uv').attr('class', 'grn')
+                $('#uv').attr('class', 'grn info')
             } else if (resp.value <= 6 && resp.value > 3) {
-                $('#uv').attr('class', 'ylw')
+                $('#uv').attr('class', 'ylw info')
             } else if (resp.value <= 8 && resp.value > 6) {
-                $('#uv').attr('class', 'org')
+                $('#uv').attr('class', 'org info')
             } else {
-                $('#uv').attr('class', 'red')
+                $('#uv').attr('class', 'red info')
             }
         })
     });
@@ -37,26 +37,45 @@ function search() {
         method: 'get'
     }).then(function(res) {
         for (i = 0; i < 5; i++) {
-            $('.days').append('<div class="col-sm-3 day">' + moment().add(1 + i, 'days').format('MMMM Do') + '<img class="fdIcon' + i + '"><br> Temp: ' + Math.floor(res.list[fdIndex[i]].main.temp * 1.8 -459.76) + ' &#176;F<br> Humidity: ' + res.list[fdIndex[i]].main.humidity + '%</div>');
+            $('.days').append('<div class="col-sm day">' + moment().add(1 + i, 'days').format('MMMM Do') + '<img class="fdIcon' + i + '"><br> Temp: ' + Math.floor(res.list[fdIndex[i]].main.temp * 1.8 -459.76) + ' &#176;F<br> Humidity: ' + res.list[fdIndex[i]].main.humidity + '%</div>');
             $('.fdIcon' + i).attr('src', 'https://openweathermap.org/img/wn/' + res.list[fdIndex[i]].weather[0].icon + '.png')
         }
     });
 };
 
 function save() {
-    
+    if (localStorage.getItem('searched') === null) {
+        localStorage.setItem('searched', '0');
+    } else {    
+        localStorage.setItem('searched', Math.floor(localStorage.getItem('searched')) + 1)
+    }
+    localStorage.setItem(localStorage.getItem('searched'), srchbx.value)
+    $('#history').html('');
+    for (i = 0; i < 1000; i++) {
+        if (localStorage.getItem([i]) === null) {
+        } else {
+            $('#history').prepend('<li> <button class="hst" id=' + i + '>' + localStorage.getItem([i]) + '</button>' + '</li>');
+        }
+        $('#' + i).click(function() {
+            $('#srchbx').attr('value', localStorage.getItem(this.id));
+            search();
+        });
+    }
 };
 
 search();
+
 $('#date').html(moment().format(' MMMM Do YYYY'))
-$('#srchbtn').click(function(){
-    search();
+
+$('#srchbtn').click(function() {
     save();
+    search();
 });
-$('#srchbx').keypress(function(e){
+
+$('#srchbx').keypress(function(e) {
     var keycode = (e.keyCode);
     if(keycode == '13'){
-        search();
         save();
+        search();
     }
-})    
+});

@@ -17,15 +17,16 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row body">
-            <div class="col-sm-3 srch">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2 srch">
                 Search for a City: <br>
                 <input type="text" id="srchbx" value="Orlando">
                 <button id="srchbtn"></button>
+                <ul id="history"></ul>
             </div>
-
-            <div class="col-sm-9">
+            <div class="col-sm-6">
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="jumbotron">
@@ -33,24 +34,38 @@
                                 <h2 id="city"></h2>
                                 <img id='tdIcon'>
                             </div>
-                            <h4 id="date"></h4>
-                            <ul>
-                                Temperature:
-                                <li id="temp"></li> 
-                                Humidity:
-                                <li id="humid"></li>
-                                Wind Speed:
-                                <li id="wind"></li>
-                                UV Index:
-                                <li id="uv"></li>
-                            </ul>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <h4 id="date"></h4>
+                                </div>
+                            </div>
+                            <div class="row td">
+                                <div class="col-sm-4">
+                                    Temperature:
+                                    <div id="temp" class="info"></div> 
+                                    Humidity: 
+                                    <div id="humid" class="info"></div>
+                                </div>
+                                <div class="col-sm-4">
+                                    Wind Speed: 
+                                    <div id="wind" class="info"></div>
+                                    UV Index:   
+                                    <div id="uv" class="info"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <h3>5 day forecast:</h3>
-                <div class="row days">
-                </div>
             </div>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8 fd">
+                <h3>5 day forecast:</h3>
+                <div class="row days"></div>
+            </div>
+            <div class="cl-sm-2"></div>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
