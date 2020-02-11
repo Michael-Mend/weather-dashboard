@@ -37,7 +37,7 @@ function search() {
         method: 'get'
     }).then(function(res) {
         for (i = 0; i < 5; i++) {
-            $('.days').append('<div class="col-sm day">' + moment().add(1 + i, 'days').format('MMMM Do') + '<img class="fdIcon' + i + '"><br> Temp: ' + Math.floor(res.list[fdIndex[i]].main.temp * 1.8 -459.76) + ' &#176;F<br> Humidity: ' + res.list[fdIndex[i]].main.humidity + '%</div>');
+            $('.days').append('<div class="col-sm day">' + moment().add(1 + i, 'days').format('MMMM Do') + '<br><img class="fdIcon' + i + '"><br> Temp: ' + Math.floor(res.list[fdIndex[i]].main.temp * 1.8 -459.76) + '&#176;F<br> Humid: ' + res.list[fdIndex[i]].main.humidity + '%</div>');
             $('.fdIcon' + i).attr('src', 'https://openweathermap.org/img/wn/' + res.list[fdIndex[i]].weather[0].icon + '.png')
         }
     });
@@ -51,24 +51,29 @@ function save() {
     }
     localStorage.setItem(localStorage.getItem('searched'), srchbx.value)
     $('#history').html('');
+};
+
+function history() {
     for (i = 0; i < 1000; i++) {
         if (localStorage.getItem([i]) === null) {
         } else {
             $('#history').prepend('<li> <button class="hst" id=' + i + '>' + localStorage.getItem([i]) + '</button>' + '</li>');
         }
-        $('#' + i).click(function() {
-            $('#srchbx').attr('value', localStorage.getItem(this.id));
-            search();
-        });
     }
+    $('.hst').click(function() {
+        document.getElementById('srchbx').value = localStorage.getItem(this.id);
+        search();
+    });   
 };
 
+history();
 search();
 
 $('#date').html(moment().format(' MMMM Do YYYY'))
 
 $('#srchbtn').click(function() {
     save();
+    history();
     search();
     $('#srchbx').attr('value', '');
 });
@@ -77,6 +82,7 @@ $('#srchbx').keypress(function(e) {
     var keycode = (e.keyCode);
     if(keycode == '13'){
         save();
+        history();
         search();
         $('#srchbx').attr('value', '');
     }

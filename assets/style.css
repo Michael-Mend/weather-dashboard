@@ -29,9 +29,7 @@ h2 {
     padding-bottom: 20px;
     padding-top: 10px;
     font-size: 18px;
-}
-.grn {
-    background-color: rgb(175, 223, 175);
+    text-align: center;
 }
 .hst {
     border-radius: 10px;
@@ -46,7 +44,11 @@ h2 {
     text-align: center;
 }
 .jumbotron {
-    background-color: rgb(231, 231, 238);   
+    background-color: rgb(231, 231, 238);
+    height: 365px;  
+}
+.grn {
+    background-color: rgb(175, 223, 175);
 }
 .org {
     background-color: rgb(247, 206, 168);
@@ -88,9 +90,20 @@ h2 {
 #srchbx {
     line-height: .80;
     border-radius: 4px;
-    width: 85%;
+    width: 80%;
 } 
 #tdIcon {
     margin-top: -60px;
 }
 
+@media only screen and (max-width: 1300px) {
+    #srchbx {
+        width: 70%;
+    }
+    .info {
+        width: 80%;
+    }
+}
+@media only screen and (max-width: 1100px) {
+    
+}
