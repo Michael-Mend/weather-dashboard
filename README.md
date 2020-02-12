@@ -6,4 +6,3 @@ their input and return weather data about said input. The application also store
 7 searches by creating clickable buttons that perform the same search function for quick access. 
 
 ![ui](https://user-images.githubusercontent.com/58165715/74265102-e0b32700-4ccf-11ea-9fb6-3732c0d4510b.JPG)
-
